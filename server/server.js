@@ -7,7 +7,9 @@ connection();
 const app=express();
 dotenv.config();
 app.use(express.json()); 
-app.use(cors());
+app.use(cors({
+    origin: "https://expense-tracker-ecru-five-ru65gjt19j.vercel.app"
+}));
 
 //api 
 app.use('/',routertransaction);
