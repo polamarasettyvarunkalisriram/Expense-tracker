@@ -1,0 +1,94 @@
+.dashboard {
+    width: 420px;
+    padding: 20px;
+    border-radius: 20px;
+    background: #ffffff;
+}
+
+/* BALANCE GLASS STYLE */
+.balance-glass {
+    padding: 20px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    color: white;
+}
+
+/* STATS */
+.stats {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.stat {
+    flex: 1;
+    padding: 12px;
+    border-radius: 14px;
+    background: #f8f9fa;
+}
+
+.stat.income {
+    border-left: 4px solid #22c55e;
+}
+
+.stat.expense {
+    border-left: 4px solid #ef4444;
+}
+
+/* SEARCH */
+.search {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    outline: none;
+    margin-bottom: 15px;
+}
+
+/* LIST */
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* ITEM */
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-radius: 14px;
+    background: #f9fafb;
+    transition: 0.2s;
+}
+
+.item:hover {
+    transform: translateY(-2px);
+    background: #f3f4f6;
+}
+
+/* AMOUNT */
+.amount {
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.amount.income {
+    color: #16a34a;
+    background: #dcfce7;
+}
+
+.amount.expense {
+    color: #dc2626;
+    background: #fee2e2;
+}
+
+/* ACTIONS */
+.actions button {
+    border: none;
+    background: transparent;
+    margin-left: 8px;
+    cursor: pointer;
+}
