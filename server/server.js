@@ -8,11 +8,7 @@ const app=express();
 dotenv.config();
 app.use(express.json()); 
 app.use(cors({
-    origin: [
-        "https://expense-tracker-ecru-five-ru65gjt19j.vercel.app"
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true
+    origin: "https://your-vercel-app.vercel.app"
 }));
 
 //api 

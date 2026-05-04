@@ -3,11 +3,13 @@ import axios from 'axios';
 
 export const ExpenseContext = createContext();
 
+const API = "https://your-backend.onrender.com";
+
 const Expensecontext = ({ children }) => {
     const [Transaction, setTransaction] = useState([]);
 
     const getTransaction = async () => {
-        const res = await axios.get('http://localhost:9500/list');
+        const res = await axios.get(`${API}/list`);
 
         if (res.data.status === 1) {
             setTransaction(res.data.data);
@@ -15,28 +17,29 @@ const Expensecontext = ({ children }) => {
     };
 
     const addTransaction = async (data) => {
-        const res = await axios.post('http://localhost:9500/add', data);
+        const res = await axios.post(`${API}/add`, data);
 
         if (res.data.status === 1) {
             getTransaction();
         }
     };
-     const deleteTransaction = async (id) => {
-        const res = await axios.delete(`http://localhost:9500/delete/${id}`);
+
+    const deleteTransaction = async (id) => {
+        const res = await axios.delete(`${API}/delete/${id}`);
+
         if (res.data.status === 1) {
             getTransaction();
         }
     };
 
-    const editTransaction=async (id,updatedData )=>{
-        
-        const result=await axios.put(`http://localhost:9500/update/${id}`,updatedData );
-        if(result.data.status===1){
+    const editTransaction = async (id, updatedData) => {
+        const result = await axios.put(`${API}/update/${id}`, updatedData);
+
+        if (result.data.status === 1) {
             getTransaction();
         }
-        
-        
-    }
+    };
+
     useEffect(() => {
         getTransaction();
     }, []);
