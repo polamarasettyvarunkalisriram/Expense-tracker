@@ -38,7 +38,7 @@ const Edit = () => {
             type
         });
 
-        navigate("/");
+        navigate("/home");
     };
 
     return (

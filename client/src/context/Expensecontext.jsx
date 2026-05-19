@@ -6,37 +6,56 @@ export const ExpenseContext = createContext();
 const Expensecontext = ({ children }) => {
     const [Transaction, setTransaction] = useState([]);
 
-    const getTransaction = async () => {
-        const res = await axios.get('http://localhost:9500/list');
+    const API = "/api/transactions"; // ✅ Vercel API
 
-        if (res.data.status === 1) {
-            setTransaction(res.data.data);
+    const getTransaction = async () => {
+        try {
+            const res = await axios.get(API);
+
+            if (res.data.status === 1) {
+                setTransaction(res.data.data);
+            }
+        } catch (err) {
+            console.error("Error fetching transactions", err);
         }
     };
 
     const addTransaction = async (data) => {
-        const res = await axios.post('http://localhost:9500/add', data);
+        try {
+            const res = await axios.post(API, data);
 
-        if (res.data.status === 1) {
-            getTransaction();
-        }
-    };
-     const deleteTransaction = async (id) => {
-        const res = await axios.delete(`http://localhost:9500/delete/${id}`);
-        if (res.data.status === 1) {
-            getTransaction();
+            if (res.data.status === 1) {
+                getTransaction();
+            }
+        } catch (err) {
+            console.error("Error adding transaction", err);
         }
     };
 
-    const editTransaction=async (id,updatedData )=>{
-        
-        const result=await axios.put(`http://localhost:9500/update/${id}`,updatedData );
-        if(result.data.status===1){
-            getTransaction();
+    const deleteTransaction = async (id) => {
+        try {
+            const res = await axios.delete(`${API}?id=${id}`);
+
+            if (res.data.status === 1) {
+                getTransaction();
+            }
+        } catch (err) {
+            console.error("Error deleting transaction", err);
         }
-        
-        
-    }
+    };
+
+    const editTransaction = async (id, updatedData) => {
+        try {
+            const result = await axios.put(`${API}?id=${id}`, updatedData);
+
+            if (result.data.status === 1) {
+                getTransaction();
+            }
+        } catch (err) {
+            console.error("Error updating transaction", err);
+        }
+    };
+
     useEffect(() => {
         getTransaction();
     }, []);

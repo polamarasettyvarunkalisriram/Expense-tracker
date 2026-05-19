@@ -7,15 +7,13 @@ connection();
 const app=express();
 dotenv.config();
 app.use(express.json()); 
-app.use(cors({
-    origin: "https://your-vercel-app.vercel.app"
-}));
+app.use(cors());
 
 //api 
 app.use('/',routertransaction);
 
 
-const PORT=9500 || process.env.PORT;
+const PORT = process.env.PORT || 9500;
 app.listen(PORT,()=>{
     console.log(`http://localhost:${PORT}`);
 })
