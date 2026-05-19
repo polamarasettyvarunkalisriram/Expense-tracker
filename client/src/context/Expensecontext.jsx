@@ -7,8 +7,7 @@ const Expensecontext = ({ children }) => {
 
     const [Transaction, setTransaction] = useState([]);
 
-    const API = "https://expense-tracker-1-pop6.onrender.com";
-
+const API = "https://expense-tracker-1-pop6.onrender.com";
     // GET
     const getTransaction = async () => {
         try {
