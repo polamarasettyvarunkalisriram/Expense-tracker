@@ -15,7 +15,7 @@ const Add = () => {
             type
         };
         await addTransaction(newTransaction);
-        navigate('/home')
+        navigate('/')
 
     }
     return (
@@ -61,7 +61,7 @@ const Add = () => {
                     </div>
                     <div className="d-flex justify-content-center mt-3  gap-3">
                         <button type="button" className="btn btn-outline-secondary px-4"
-                            onClick={() => navigate('/home')}>Cancel
+                            onClick={() => navigate('/')}>Cancel
                         </button>
                         <button type="submit" className="btn btn-primary px-4">
                             Submit
