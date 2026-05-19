@@ -15,7 +15,7 @@ const Edit = () => {
 
     useEffect(() => {
         const fetchOne = async () => {
-            const res = await axios.get("http://localhost:9500/list");
+            const res = await axios.get("https://expense-tracker-1-pop6.onrender.com/list");
 
             const item = res.data.data.find(t => t.trans_id == id);
 

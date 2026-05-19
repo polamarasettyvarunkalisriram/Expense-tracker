@@ -6,8 +6,7 @@ export const ExpenseContext = createContext();
 const Expensecontext = ({ children }) => {
     const [Transaction, setTransaction] = useState([]);
 
-    const API = "/api/transactions"; // ✅ Vercel API
-
+const API = "https://expense-tracker-1-pop6.onrender.com/api/transactions";
     const getTransaction = async () => {
         try {
             const res = await axios.get(API);

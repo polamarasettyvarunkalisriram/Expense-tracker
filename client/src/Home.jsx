@@ -10,7 +10,7 @@ const Home = () => {
     const [search,setsearch]=useState("");
  const getTransaction = async () => {
         try {
-            const res = await axios.get('http://localhost:9500/list');
+            const res = await axios.get('https://expense-tracker-1-pop6.onrender.com/list');
 
             if (res.data.status === 1) {
                 setTransaction(res.data.data); 
