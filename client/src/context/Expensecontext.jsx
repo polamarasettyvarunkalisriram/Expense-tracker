@@ -4,12 +4,15 @@ import axios from 'axios';
 export const ExpenseContext = createContext();
 
 const Expensecontext = ({ children }) => {
+
     const [Transaction, setTransaction] = useState([]);
 
-const API = "https://expense-tracker-1-pop6.onrender.com/api/transactions";
+    const API = "https://expense-tracker-1-pop6.onrender.com";
+
+    // GET
     const getTransaction = async () => {
         try {
-            const res = await axios.get(API);
+            const res = await axios.get(`${API}/list`);
 
             if (res.data.status === 1) {
                 setTransaction(res.data.data);
@@ -19,9 +22,10 @@ const API = "https://expense-tracker-1-pop6.onrender.com/api/transactions";
         }
     };
 
+    // ADD
     const addTransaction = async (data) => {
         try {
-            const res = await axios.post(API, data);
+            const res = await axios.post(`${API}/add`, data);
 
             if (res.data.status === 1) {
                 getTransaction();
@@ -31,9 +35,10 @@ const API = "https://expense-tracker-1-pop6.onrender.com/api/transactions";
         }
     };
 
+    // DELETE
     const deleteTransaction = async (id) => {
         try {
-            const res = await axios.delete(`${API}?id=${id}`);
+            const res = await axios.delete(`${API}/delete/${id}`);
 
             if (res.data.status === 1) {
                 getTransaction();
@@ -43,9 +48,13 @@ const API = "https://expense-tracker-1-pop6.onrender.com/api/transactions";
         }
     };
 
+    // UPDATE
     const editTransaction = async (id, updatedData) => {
         try {
-            const result = await axios.put(`${API}?id=${id}`, updatedData);
+            const result = await axios.put(
+                `${API}/update/${id}`,
+                updatedData
+            );
 
             if (result.data.status === 1) {
                 getTransaction();
