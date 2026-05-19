@@ -2,7 +2,7 @@
 
 Frontend Live URL:
 
-[:contentReference[oaicite:0]{index=0}
+[:Expense Tracker Live[oaicite:0]{index=0}
 ](https://expense-tracker-7723.vercel.app/)
 # Expense Tracker – Full Stack Web Application
 
