@@ -1,11 +1,11 @@
 const mysql=require('mysql2/promise');
 
 const db=mysql.createPool({
-    host:'localhost',
-    user:'root',
-    port:3306,
-    password:'123456',
-    database:'expense_db'
+   host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
 })
 
 const connection =async ()=>{
