@@ -2,8 +2,8 @@
 
 Frontend Live URL:
 
-:contentReference[oaicite:0]{index=0}
-
+[:contentReference[oaicite:0]{index=0}
+](https://expense-tracker-7723.vercel.app/)
 # Expense Tracker – Full Stack Web Application
 
 Expense Tracker is a full-stack web application developed to manage daily income and expenses efficiently. The application helps users track transactions, monitor spending, and manage financial records with a secure and responsive interface.
