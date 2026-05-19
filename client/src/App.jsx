@@ -3,7 +3,6 @@ import Home from './Home'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Add from './Add'
 import Edit from './Edit'
-import Login from './Login'
 
 const App = () => {
   return (
